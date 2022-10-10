@@ -1,0 +1,51 @@
+<div class="app">
+  <h1>Friendly solutions - code task</h1>
+  <div class="input-container">
+    <label for="filterInput">Filter tasks</label>
+    <input
+      #filterInput
+      type="text"
+      placeholder="Search by description"
+      (input)="onInput(filterInput.value)"
+    />
+  </div>
+  <table class="main-table">
+    <thead>
+      <tr>
+        <th rowspan="2" colspan="1">WO ID</th>
+        <th rowspan="2" colspan="1">Description</th>
+        <th rowspan="2" colspan="1">Received date</th>
+        <th rowspan="1" colspan="2">Assigned to</th>
+        <th rowspan="2" colspan="1">Status</th>
+        <th rowspan="2" colspan="1">Priority</th>
+      </tr>
+      <tr>
+        <th>Person name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of filteredData">
+        <td>{{ dataItem["work_order_id"] }}</td>
+        <td>{{ dataItem["description"] }}</td>
+        <td>{{ dataItem["received_date"] }}</td>
+        <td id="column-with-table">
+          <table class="assigned-to-table">
+            <tr id="row2" *ngFor="let person of dataItem['assigned_to']">
+              <td id="column2">{{ person["person_name"] }}</td>
+            </tr>
+          </table>
+        </td>
+        <td id="column-with-table">
+          <table class="assigned-to-table">
+            <tr id="row2" *ngFor="let person of dataItem['assigned_to']">
+              <td id="column2">{{ person["status"] }}</td>
+            </tr>
+          </table>
+        </td>
+        <td>{{ dataItem["status"] }}</td>
+        <td>{{ dataItem["priority"] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
