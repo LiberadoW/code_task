@@ -5,4 +5,4 @@ Before installing this app, make sure you have the Angular CLI installed globall
 
 ### Usage
 
-This app lets you browse work orders and filter them by their description. In order to filter the work orders, start typing text in the input box labeled 'Filter tasks'. The app will show/hide data as you type.
+This app lets you browse work orders and filter them by their description. In order to filter the work orders, start typing text in the input box labeled 'Filter tasks'. The app will show/hide data as you type. Note: this function is not case sensitive.
