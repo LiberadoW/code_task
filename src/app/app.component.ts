@@ -29,6 +29,7 @@ export class AppComponent {
   filter: string = '';
   data: Data[] = [];
   filteredData: Data[] = [];
+  loading: boolean = true;
   tableHeaders: string[] = [
     'WO ID',
     'Description',
@@ -49,6 +50,7 @@ export class AppComponent {
     this.api.getData().then((data:any) => {
       this.data = data['response']['data'];
       this.filteredData = data['response']['data'];
+      this.loading=false;
     });
   }
 }
